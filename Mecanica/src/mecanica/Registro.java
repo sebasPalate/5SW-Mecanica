@@ -20,6 +20,7 @@ public class Registro extends javax.swing.JFrame {
      */
     public Registro() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -233,7 +234,7 @@ public class Registro extends javax.swing.JFrame {
             this.jlblMensaje.setText("");
         }
     }
-
+    
     private boolean validacionDatos() {
         if (" ".equals(this.jpswContraseña.getText())) {
             JOptionPane.showMessageDialog(this, "Ingrese la Contraseña");
@@ -247,7 +248,7 @@ public class Registro extends javax.swing.JFrame {
             return true;
         }
     }
-
+    
     private void registrar() {
         if (validacionDatos()) {
             Conexion conexion = new Conexion();
@@ -278,11 +279,11 @@ public class Registro extends javax.swing.JFrame {
             }
         }
     }
-
+    
     private void limpiar() {
         this.jtxtUsuario.setText("");
         this.jpswContraseña.setText("");
         this.jpswConfirmarContraseña.setText("");
     }
-
+    
 }
