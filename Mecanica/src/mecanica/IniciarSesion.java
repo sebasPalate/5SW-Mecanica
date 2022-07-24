@@ -23,6 +23,7 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -67,6 +68,11 @@ public class IniciarSesion extends javax.swing.JFrame {
         });
 
         jbtnRegistrar.setText("Regitrarse");
+        jbtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,6 +142,11 @@ public class IniciarSesion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbtnCancelarActionPerformed
 
+    private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
+        // TODO add your handling code here:
+        registrarse();
+    }//GEN-LAST:event_jbtnRegistrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,7 +195,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private String user;
-
+    
     private void iniciarSesion(JTextField usuario, JPasswordField contraseña) {
         try {
             Conexion conexion = new Conexion();
@@ -198,16 +209,16 @@ public class IniciarSesion extends javax.swing.JFrame {
                     PreparedStatement psd = conection.prepareStatement(sql);
                     psd.setString(1, jtxtUsuario.getText());
                     psd.setString(2, jpswContraseña.getText());
-
+                    
                     ResultSet resultado = psd.executeQuery();
                     if (resultado.next()) {
-                        this.user = resultado.getString("USUARIO");
+                        this.user = resultado.getString("USER");
                         JOptionPane.showMessageDialog(null, "¡Bienvenido!\n" + this.user + "\n");
                         this.dispose();
-
-                        Principal p = new Principal();
-                        p.setVisible(true);
-
+                        
+                        Sistema sistema = new Sistema();
+                        sistema.setVisible(true);
+                        
                     } else {
                         JOptionPane.showMessageDialog(null, "Credenciales Incorrectas :(");
                     }
@@ -220,7 +231,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         }
     }
     
-    private void registrarse(){
+    private void registrarse() {
         Registro registro = new Registro();
         registro.setVisible(true);
         this.dispose();
