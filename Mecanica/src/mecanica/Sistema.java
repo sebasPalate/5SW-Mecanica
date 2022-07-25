@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,6 +34,7 @@ public class Sistema extends javax.swing.JFrame {
         cargarRuedas();
         cargarRepuestos();
         cargarComponentes();
+
     }
 
     /**
@@ -65,6 +68,8 @@ public class Sistema extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jbtnConstruirComponente = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jtblComponentes = new javax.swing.JTable();
         jlblTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -189,6 +194,19 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel11.setText("CONSTRUCCION DE COMPONENTES");
 
+        jtblComponentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jtblComponentes);
+
         javax.swing.GroupLayout JpnlInsersionLayout = new javax.swing.GroupLayout(JpnlInsersion);
         JpnlInsersion.setLayout(JpnlInsersionLayout);
         JpnlInsersionLayout.setHorizontalGroup(
@@ -223,6 +241,10 @@ public class Sistema extends javax.swing.JFrame {
                 .addGap(135, 135, 135)
                 .addComponent(jbtnConstruirComponente)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         JpnlInsersionLayout.setVerticalGroup(
             JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +277,9 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(jbtnConstruirComponente)
                 .addGap(22, 22, 22))
         );
@@ -471,12 +495,9 @@ public class Sistema extends javax.swing.JFrame {
                         .addGap(18, 30, Short.MAX_VALUE)
                         .addComponent(JpnlInsersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jpnlTablas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jlblTitulo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(jlblTitulo))
                 .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
@@ -488,7 +509,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JpnlInsersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JpnlInsersion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 87, Short.MAX_VALUE)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -595,6 +616,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JButton jbtnAñadirRepuesto;
     private javax.swing.JButton jbtnConstruirComponente;
     private javax.swing.JComboBox<String> jcbxComponentes;
@@ -602,6 +624,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel jlblTitulo;
     private javax.swing.JLabel jlblTituloTornillo;
     private javax.swing.JPanel jpnlTablas;
+    private javax.swing.JTable jtblComponentes;
     private javax.swing.JTable jtblLlantas;
     private javax.swing.JTable jtblRuedas;
     private javax.swing.JTable jtblTornillos;
@@ -627,6 +650,9 @@ public class Sistema extends javax.swing.JFrame {
     private DefaultTableModel modeloValvulas;
     private DefaultTableModel modeloNeumaticos;
     private DefaultTableModel modeloRuedas;
+    private DefaultTableModel modeloComponentes;
+
+    Integer fila;
 
     private void cargarTornillos() {
         try {
@@ -903,4 +929,76 @@ public class Sistema extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + ex);
         }
     }
+
+    public void seleccionarTornillo() {
+        this.jtblTornillos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (jtblTornillos.getSelectedRow() != -1) {
+                    fila = jtblTornillos.getSelectedRow();
+//                    jtxtCedula.setText(jtblTornillos.getValueAt(fila, 0).toString());
+//                    jtxtNombre.setText(jtblTornillos.getValueAt(fila, 1).toString());
+//                    jtxtApellido.setText(jtblTornillos.getValueAt(fila, 2).toString());
+
+                }
+            }
+        });
+    }
+
+    private void cargarComponentesTornillos() {
+        try {
+            switch (this.jcbxComponentes.getSelectedIndex()) {
+                case 1:
+                    String[] titulosLlanta = {"CÓDIGO", "TIPO", "PRECIO"};
+                    this.modeloComponentes = new DefaultTableModel(null, titulosLlanta);
+                    String[] registrosLlanta = new String[3];
+
+                    if (connection != null) {
+                        String sql = "SELECT * FROM TORNILLOS";
+                        Statement statement = connection.createStatement();
+                        ResultSet resultSet = statement.executeQuery(sql);
+
+                        while (resultSet.next()) {
+                            registrosLlanta[0] = resultSet.getString("CODIGO");
+                            registrosLlanta[1] = resultSet.getString("TAMAÑO");
+                            registrosLlanta[2] = resultSet.getString("LLANTA");
+                            registrosLlanta[3] = resultSet.getString("NEUMATICO");
+                            registrosLlanta[4] = resultSet.getString("PRECIO");
+
+                            this.modeloRuedas.addRow(registrosLlanta);
+                        }
+                        this.jtblRuedas.setModel(this.modeloRuedas);
+                    }
+                    break;
+                case 2:
+                    String[] titulosRueda = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMÁTICO", "PRECIO"};
+                    this.modeloComponentes = new DefaultTableModel(null, titulosRueda);
+                    String[] registrosRueda = new String[5];
+
+                    if (connection != null) {
+                        String sql = "SELECT * FROM RUEDAS";
+                        Statement statement = connection.createStatement();
+                        ResultSet resultSet = statement.executeQuery(sql);
+
+                        while (resultSet.next()) {
+                            registrosRueda[0] = resultSet.getString("CODIGO");
+                            registrosRueda[1] = resultSet.getString("TAMAÑO");
+                            registrosRueda[2] = resultSet.getString("LLANTA");
+                            registrosRueda[3] = resultSet.getString("NEUMATICO");
+                            registrosRueda[4] = resultSet.getString("PRECIO");
+
+                            this.modeloRuedas.addRow(registrosRueda);
+                        }
+                        this.jtblRuedas.setModel(this.modeloRuedas);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:  " + ex);
+        }
+    }
+
 }
