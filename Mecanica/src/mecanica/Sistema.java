@@ -59,16 +59,16 @@ public class Sistema extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jcbxComponentes = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtxtComponenteCodigo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtxtComponenteMarca = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jtxtComponentePrecio = new javax.swing.JTextField();
+        jtxtComponenteTamaño = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jtxtComponenteTipo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbtnConstruirComponente = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jlblTitulo = new javax.swing.JLabel();
@@ -80,16 +80,16 @@ public class Sistema extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jcbxRespuestos = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jtxtRespuestoCodigo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jtxtRepuestoMarca = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        jtxtRespuestoPrecio = new javax.swing.JTextField();
+        jtxtRepuestoTamaño = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        jtxtRepuestoTipo = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jbtnAñadirRepuesto = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,12 +201,18 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         JpnlInsersion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setText("COMPONENTE ");
+
+        jcbxComponentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbxComponentesActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("CODIGO");
 
@@ -218,10 +224,10 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel10.setText("TIPO");
 
-        jButton1.setText("Construir Componente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnConstruirComponente.setText("Construir Componente");
+        jbtnConstruirComponente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnConstruirComponenteActionPerformed(evt);
             }
         });
 
@@ -238,29 +244,28 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jcbxComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
+                        .addComponent(jtxtComponenteCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtComponenteMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtComponenteTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(18, 54, Short.MAX_VALUE)
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtComponenteTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(9, 9, 9))
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addGap(135, 135, 135)
-                .addComponent(jButton1)
+                .addComponent(jbtnConstruirComponente)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JpnlInsersionLayout.setVerticalGroup(
@@ -275,27 +280,27 @@ public class Sistema extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtComponenteCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersionLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtxtComponenteMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtxtComponenteTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersionLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtxtComponenteTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(jbtnConstruirComponente)
                 .addGap(22, 22, 22))
         );
 
@@ -347,9 +352,15 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel12.setText("REPUESTO ");
 
+        jcbxRespuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbxRespuestosActionPerformed(evt);
+            }
+        });
+
         jLabel13.setText("CODIGO");
 
-        jLabel14.setText("MARCA: ");
+        jLabel14.setText("MARCA ");
 
         jLabel15.setText("PRECIO");
 
@@ -357,10 +368,10 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel17.setText("TIPO");
 
-        jButton2.setText("Añadir Repuesto");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbtnAñadirRepuesto.setText("Añadir Repuesto");
+        jbtnAñadirRepuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbtnAñadirRepuestoActionPerformed(evt);
             }
         });
 
@@ -377,7 +388,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel13)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
+                        .addComponent(jtxtRespuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,21 +396,21 @@ public class Sistema extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel18)))
                             .addComponent(jLabel16))
                         .addGap(48, 48, 48)
                         .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtxtRespuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addGap(135, 135, 135)
-                        .addComponent(jButton2)))
+                        .addComponent(jbtnAñadirRepuesto)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         JpnlInsersion1Layout.setVerticalGroup(
@@ -414,29 +425,29 @@ public class Sistema extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtRespuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtRespuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
-                .addComponent(jButton2)
+                .addComponent(jbtnAñadirRepuesto)
                 .addGap(14, 14, 14))
         );
 
@@ -450,7 +461,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(32, 32, 32)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(280, 280, 280)
@@ -480,7 +491,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(80, 80, 80)
+                .addGap(54, 54, 54)
                 .addComponent(jpnlTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -488,13 +499,21 @@ public class Sistema extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnConstruirComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConstruirComponenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtnConstruirComponenteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbtnAñadirRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirRepuestoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbtnAñadirRepuestoActionPerformed
+
+    private void jcbxRespuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbxRespuestosActionPerformed
+        agregarRepuestos();
+    }//GEN-LAST:event_jcbxRespuestosActionPerformed
+
+    private void jcbxComponentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbxComponentesActionPerformed
+        agregarComponentes();
+    }//GEN-LAST:event_jcbxComponentesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,8 +553,6 @@ public class Sistema extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpnlInsersion;
     private javax.swing.JPanel JpnlInsersion1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -561,16 +578,8 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton jbtnAñadirRepuesto;
+    private javax.swing.JButton jbtnConstruirComponente;
     private javax.swing.JComboBox<String> jcbxComponentes;
     private javax.swing.JComboBox<String> jcbxRespuestos;
     private javax.swing.JLabel jlblTitulo;
@@ -581,6 +590,16 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTable jtblTornillos;
     private javax.swing.JTable jtblValvulas;
     private javax.swing.JTable jtblnNeumaticos;
+    private javax.swing.JTextField jtxtComponenteCodigo;
+    private javax.swing.JTextField jtxtComponenteMarca;
+    private javax.swing.JTextField jtxtComponentePrecio;
+    private javax.swing.JTextField jtxtComponenteTamaño;
+    private javax.swing.JTextField jtxtComponenteTipo;
+    private javax.swing.JTextField jtxtRepuestoMarca;
+    private javax.swing.JTextField jtxtRepuestoTamaño;
+    private javax.swing.JTextField jtxtRepuestoTipo;
+    private javax.swing.JTextField jtxtRespuestoCodigo;
+    private javax.swing.JTextField jtxtRespuestoPrecio;
     // End of variables declaration//GEN-END:variables
 
     private final Conexion conexion = new Conexion();
@@ -737,5 +756,49 @@ public class Sistema extends javax.swing.JFrame {
         this.jcbxComponentes.addItem(" ");
         this.jcbxComponentes.addItem("Llanta");
         this.jcbxComponentes.addItem("Rueda");
+    }
+
+    private void agregarRepuestos() {
+        switch (this.jcbxRespuestos.getSelectedIndex()) {
+            case 1:
+                this.jtxtRepuestoTipo.setEnabled(false);
+                this.jtxtRepuestoTamaño.setEnabled(false);
+                break;
+            case 2:
+                this.jtxtRepuestoTipo.setEnabled(true);
+                this.jtxtRepuestoTamaño.setEnabled(false);
+                this.jtxtRepuestoMarca.setEnabled(false);
+                break;
+            case 3:
+                this.jtxtRepuestoTipo.setEnabled(false);
+                this.jtxtRepuestoTamaño.setEnabled(true);
+                this.jtxtRepuestoMarca.setEnabled(true);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void agregarComponentes() {
+        switch (this.jcbxComponentes.getSelectedIndex()) {
+            case 1:
+                this.jtxtComponenteTipo.setEnabled(false);
+                this.jtxtComponenteTamaño.setEnabled(false);
+                break;
+            case 2:
+                this.jtxtRepuestoTipo.setEnabled(true);
+                this.jtxtRepuestoTamaño.setEnabled(false);
+                this.jtxtRepuestoMarca.setEnabled(false);
+                break;
+            case 3:
+                this.jtxtRepuestoTipo.setEnabled(false);
+                this.jtxtRepuestoTamaño.setEnabled(true);
+                this.jtxtRepuestoMarca.setEnabled(true);
+                break;
+            default:
+                break;
+        }
+
     }
 }
