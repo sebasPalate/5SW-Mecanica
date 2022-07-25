@@ -35,6 +35,8 @@ public class Sistema extends javax.swing.JFrame {
         cargarRepuestos();
         cargarComponentes();
 
+        seleccionarTornillo();
+
     }
 
     /**
@@ -59,18 +61,18 @@ public class Sistema extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jbtnConstruirComponente = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jlblTituloTornillos = new javax.swing.JLabel();
+        jlblTituloLlantas = new javax.swing.JLabel();
+        jlblTituloValvulas = new javax.swing.JLabel();
+        jbtnAñadirTornillo = new javax.swing.JButton();
+        jbtnAñadirLlanta = new javax.swing.JButton();
+        jbtnAñadirValvula = new javax.swing.JButton();
+        jtxtTornillo = new javax.swing.JTextField();
+        jtxtLLanta = new javax.swing.JTextField();
+        jtxtValvula = new javax.swing.JTextField();
+        jlblTituloNeumaticos = new javax.swing.JLabel();
+        jtxtNeumatico = new javax.swing.JTextField();
+        jbtnAñadirNeumatico = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtblComponentes = new javax.swing.JTable();
         jlblTitulo = new javax.swing.JLabel();
@@ -78,7 +80,7 @@ public class Sistema extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jcbxRespuestos = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jtxtRespuestoCodigo = new javax.swing.JTextField();
+        jtxtRepuestoCodigo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jtxtRepuestoMarca = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -93,7 +95,7 @@ public class Sistema extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtblTornillos = new javax.swing.JTable();
-        jlblTituloTornillo = new javax.swing.JLabel();
+        jlblRTituloTornillo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtblValvulas = new javax.swing.JTable();
@@ -140,29 +142,29 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel11.setText("CONSTRUCCION DE COMPONENTES");
 
-        jLabel22.setText("TORNILLOS");
-        jLabel22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlblTituloTornillos.setText("TORNILLOS");
+        jlblTituloTornillos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel25.setText("LLANTAS");
-        jLabel25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlblTituloLlantas.setText("LLANTAS");
+        jlblTituloLlantas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel26.setText("VALVULAS");
-        jLabel26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlblTituloValvulas.setText("VALVULAS");
+        jlblTituloValvulas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Agregar");
+        jbtnAñadirTornillo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtnAñadirTornillo.setText("Agregar");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Agregar");
+        jbtnAñadirLlanta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtnAñadirLlanta.setText("Agregar");
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Agregar");
+        jbtnAñadirValvula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtnAñadirValvula.setText("Agregar");
 
-        jLabel27.setText("NEUMATICOS");
-        jLabel27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlblTituloNeumaticos.setText("NEUMATICOS");
+        jlblTituloNeumaticos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Agregar");
+        jbtnAñadirNeumatico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtnAñadirNeumatico.setText("Agregar");
 
         jtblComponentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,26 +193,26 @@ public class Sistema extends javax.swing.JFrame {
                     .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(JpnlInsersionLayout.createSequentialGroup()
                             .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jtxtTornillo)
+                                .addComponent(jlblTituloTornillos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2)
-                                .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jtxtLLanta)
+                                .addComponent(jlblTituloLlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtnAñadirTornillo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton2)))
+                            .addComponent(jbtnAñadirLlanta)))
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtxtValvula, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbtnAñadirValvula, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlblTituloValvulas, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jlblTituloNeumaticos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtxtNeumatico)
+                            .addComponent(jbtnAñadirNeumatico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jbtnConstruirComponente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -274,29 +276,29 @@ public class Sistema extends javax.swing.JFrame {
                             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel22))
+                                    .addComponent(jlblTituloLlantas)
+                                    .addComponent(jlblTituloTornillos))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtxtTornillo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtLLanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2))
+                                    .addComponent(jbtnAñadirTornillo)
+                                    .addComponent(jbtnAñadirLlanta))
                                 .addGap(29, 29, 29)
-                                .addComponent(jLabel26)
+                                .addComponent(jlblTituloValvulas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtValvula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3))
+                                .addComponent(jbtnAñadirValvula))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersionLayout.createSequentialGroup()
                                 .addGap(113, 113, 113)
-                                .addComponent(jLabel27)
+                                .addComponent(jlblTituloNeumaticos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtNeumatico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4)))
+                                .addComponent(jbtnAñadirNeumatico)))
                         .addGap(60, 60, 60)
                         .addComponent(jbtnConstruirComponente)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -345,7 +347,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel13)
-                        .addComponent(jtxtRespuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
+                        .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +384,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtxtRespuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
@@ -423,7 +425,7 @@ public class Sistema extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtblTornillos);
 
-        jlblTituloTornillo.setText("TORNILLOS");
+        jlblRTituloTornillo.setText("TORNILLOS");
 
         jLabel5.setText("VALVULAS");
 
@@ -505,7 +507,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlblTituloTornillo)
+                                    .addComponent(jlblRTituloTornillo)
                                     .addComponent(jLabel20)
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -534,7 +536,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel20)
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlblTituloTornillo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlblRTituloTornillo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -659,10 +661,6 @@ public class Sistema extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpnlInsersion;
     private javax.swing.JPanel JpnlInsersion1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -675,10 +673,6 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -694,16 +688,20 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton jbtnAñadirLlanta;
+    private javax.swing.JButton jbtnAñadirNeumatico;
     private javax.swing.JButton jbtnAñadirRepuesto;
+    private javax.swing.JButton jbtnAñadirTornillo;
+    private javax.swing.JButton jbtnAñadirValvula;
     private javax.swing.JButton jbtnConstruirComponente;
     private javax.swing.JComboBox<String> jcbxComponentes;
     private javax.swing.JComboBox<String> jcbxRespuestos;
+    private javax.swing.JLabel jlblRTituloTornillo;
     private javax.swing.JLabel jlblTitulo;
-    private javax.swing.JLabel jlblTituloTornillo;
+    private javax.swing.JLabel jlblTituloLlantas;
+    private javax.swing.JLabel jlblTituloNeumaticos;
+    private javax.swing.JLabel jlblTituloTornillos;
+    private javax.swing.JLabel jlblTituloValvulas;
     private javax.swing.JTable jtblComponentes;
     private javax.swing.JTable jtblLlantas;
     private javax.swing.JTable jtblRuedas;
@@ -714,11 +712,15 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtComponenteMarca;
     private javax.swing.JTextField jtxtComponentePrecio;
     private javax.swing.JTextField jtxtComponenteTamaño;
+    private javax.swing.JTextField jtxtLLanta;
+    private javax.swing.JTextField jtxtNeumatico;
+    private javax.swing.JTextField jtxtRepuestoCodigo;
     private javax.swing.JTextField jtxtRepuestoMarca;
     private javax.swing.JTextField jtxtRepuestoPrecio;
     private javax.swing.JTextField jtxtRepuestoTamaño;
     private javax.swing.JTextField jtxtRepuestoTipo;
-    private javax.swing.JTextField jtxtRespuestoCodigo;
+    private javax.swing.JTextField jtxtTornillo;
+    private javax.swing.JTextField jtxtValvula;
     // End of variables declaration//GEN-END:variables
 
     private final Conexion conexion = new Conexion();
@@ -883,20 +885,32 @@ public class Sistema extends javax.swing.JFrame {
     private void agregarRepuestos() {
         switch (this.jcbxRespuestos.getSelectedIndex()) {
             case 1:
+                this.jtxtRepuestoCodigo.setEnabled(true);
+                this.jtxtRepuestoMarca.setEnabled(true);
+                this.jtxtRepuestoPrecio.setEnabled(true);
                 this.jtxtRepuestoTipo.setEnabled(false);
                 this.jtxtRepuestoTamaño.setEnabled(false);
                 break;
             case 2:
+                this.jtxtRepuestoCodigo.setEnabled(true);
                 this.jtxtRepuestoTipo.setEnabled(true);
+                this.jtxtRepuestoPrecio.setEnabled(true);
                 this.jtxtRepuestoTamaño.setEnabled(false);
                 this.jtxtRepuestoMarca.setEnabled(false);
                 break;
             case 3:
-                this.jtxtRepuestoTipo.setEnabled(false);
-                this.jtxtRepuestoTamaño.setEnabled(true);
+                this.jtxtRepuestoCodigo.setEnabled(true);
                 this.jtxtRepuestoMarca.setEnabled(true);
+                this.jtxtRepuestoTamaño.setEnabled(true);
+                this.jtxtRepuestoPrecio.setEnabled(false);
+                this.jtxtRepuestoTipo.setEnabled(false);
                 break;
             default:
+                this.jtxtRepuestoCodigo.setEnabled(false);
+                this.jtxtRepuestoMarca.setEnabled(false);
+                this.jtxtRepuestoTipo.setEnabled(false);
+                this.jtxtRepuestoTamaño.setEnabled(false);
+                this.jtxtRepuestoPrecio.setEnabled(false);
                 break;
         }
 
@@ -905,12 +919,25 @@ public class Sistema extends javax.swing.JFrame {
     private void agregarComponentes() {
         switch (this.jcbxComponentes.getSelectedIndex()) {
             case 1:
+                this.jtxtComponenteCodigo.setEnabled(true);
                 this.jtxtComponenteMarca.setEnabled(true);
+                this.jtxtComponenteTamaño.setEnabled(true);
+                this.jtxtComponentePrecio.setEnabled(true);
+                bloqueoLlantas();
                 break;
             case 2:
+                this.jtxtComponenteCodigo.setEnabled(true);
+                this.jtxtComponenteTamaño.setEnabled(true);
+                this.jtxtComponentePrecio.setEnabled(true);
                 this.jtxtComponenteMarca.setEnabled(false);
+                bloqueoRuedas();
                 break;
             default:
+                this.jtxtComponenteCodigo.setEnabled(false);
+                this.jtxtComponenteMarca.setEnabled(false);
+                this.jtxtComponenteTamaño.setEnabled(false);
+                this.jtxtComponentePrecio.setEnabled(false);
+                bloqueoTotal();
                 break;
         }
 
@@ -919,13 +946,13 @@ public class Sistema extends javax.swing.JFrame {
     private void agregarTornillos() {
         try {
             String sql = "INSERT INTO TORNILLOS(CODIGO, MARCA, PRECIO) VALUES(?, ?, ?)";
-            if (this.jtxtRespuestoCodigo.getText().equals("") || this.jtxtRepuestoMarca.getText().equals("")
+            if (this.jtxtRepuestoCodigo.getText().equals("") || this.jtxtRepuestoMarca.getText().equals("")
                     || this.jtxtRepuestoPrecio.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Inserte Datos o Datos Incompletos");
-                this.jtxtRespuestoCodigo.requestFocus();
+                this.jtxtRepuestoCodigo.requestFocus();
             } else {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, this.jtxtRespuestoCodigo.getText());
+                preparedStatement.setString(1, this.jtxtRepuestoCodigo.getText());
                 preparedStatement.setString(2, this.jtxtRepuestoMarca.getText().toUpperCase());
                 preparedStatement.setString(3, this.jtxtRepuestoPrecio.getText());
 
@@ -942,7 +969,7 @@ public class Sistema extends javax.swing.JFrame {
     }
 
     private void limpiar() {
-        this.jtxtRespuestoCodigo.setText("");
+        this.jtxtRepuestoCodigo.setText("");
         this.jtxtRepuestoMarca.setText("");
         this.jtxtRepuestoTipo.setText("");
         this.jtxtRepuestoTamaño.setText("");
@@ -952,13 +979,13 @@ public class Sistema extends javax.swing.JFrame {
     private void agregarValvula() {
         try {
             String sql = "INSERT INTO VALVULAS(CODIGO, TIPO, PRECIO) VALUES(?, ?, ?)";
-            if (this.jtxtRespuestoCodigo.getText().equals("") || this.jtxtRepuestoTipo.getText().equals("")
+            if (this.jtxtRepuestoCodigo.getText().equals("") || this.jtxtRepuestoTipo.getText().equals("")
                     || this.jtxtRepuestoPrecio.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Inserte Datos o Datos Incompletos");
-                this.jtxtRespuestoCodigo.requestFocus();
+                this.jtxtRepuestoCodigo.requestFocus();
             } else {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, this.jtxtRespuestoCodigo.getText());
+                preparedStatement.setString(1, this.jtxtRepuestoCodigo.getText());
                 preparedStatement.setString(2, this.jtxtRepuestoTipo.getText().toUpperCase());
                 preparedStatement.setString(3, this.jtxtRepuestoPrecio.getText());
 
@@ -977,14 +1004,14 @@ public class Sistema extends javax.swing.JFrame {
     private void agregarNeumatico() {
         try {
             String sql = "INSERT INTO NEUMATICOS(CODIGO, MARCA, TAMAÑO, PRECIO) VALUES(?, ?, ?, ?)";
-            if (this.jtxtRespuestoCodigo.getText().equals("") || this.jtxtRepuestoMarca.getText().equals("")
+            if (this.jtxtRepuestoCodigo.getText().equals("") || this.jtxtRepuestoMarca.getText().equals("")
                     || this.jtxtRepuestoTamaño.getText().equals("")
                     || this.jtxtRepuestoPrecio.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Inserte Datos o Datos Incompletos");
-                this.jtxtRespuestoCodigo.requestFocus();
+                this.jtxtRepuestoCodigo.requestFocus();
             } else {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, this.jtxtRespuestoCodigo.getText());
+                preparedStatement.setString(1, this.jtxtRepuestoCodigo.getText());
                 preparedStatement.setString(2, this.jtxtRepuestoMarca.getText().toUpperCase());
                 preparedStatement.setString(3, this.jtxtRepuestoTamaño.getText());
                 preparedStatement.setString(4, this.jtxtRepuestoPrecio.getText());
@@ -1002,16 +1029,10 @@ public class Sistema extends javax.swing.JFrame {
     }
 
     public void seleccionarTornillo() {
-        this.jtblTornillos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (jtblTornillos.getSelectedRow() != -1) {
-                    fila = jtblTornillos.getSelectedRow();
-//                    jtxtCedula.setText(jtblTornillos.getValueAt(fila, 0).toString());
-//                    jtxtNombre.setText(jtblTornillos.getValueAt(fila, 1).toString());
-//                    jtxtApellido.setText(jtblTornillos.getValueAt(fila, 2).toString());
-
-                }
+        this.jtblTornillos.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            if (jtblTornillos.getSelectedRow() != -1) {
+                fila = jtblTornillos.getSelectedRow();
+                jtxtTornillo.setText(jtblTornillos.getValueAt(fila, 0).toString());
             }
         });
     }
@@ -1111,6 +1132,60 @@ public class Sistema extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:  " + ex);
         }
+    }
+
+    private void bloqueoLlantas() {
+        this.jlblTituloTornillos.setEnabled(true);
+        this.jtxtTornillo.setEnabled(true);
+        this.jbtnAñadirTornillo.setEnabled(true);
+
+        this.jlblTituloLlantas.setEnabled(false);
+        this.jtxtLLanta.setEnabled(false);
+        this.jbtnAñadirLlanta.setEnabled(false);
+
+        this.jlblTituloValvulas.setEnabled(false);
+        this.jtxtValvula.setEnabled(false);
+        this.jbtnAñadirValvula.setEnabled(false);
+
+        this.jlblTituloNeumaticos.setEnabled(false);
+        this.jtxtNeumatico.setEnabled(false);
+        this.jbtnAñadirNeumatico.setEnabled(false);
+    }
+
+    private void bloqueoRuedas() {
+        this.jlblTituloTornillos.setEnabled(false);
+        this.jtxtTornillo.setEnabled(false);
+        this.jbtnAñadirTornillo.setEnabled(false);
+
+        this.jlblTituloLlantas.setEnabled(true);
+        this.jtxtLLanta.setEnabled(true);
+        this.jbtnAñadirLlanta.setEnabled(true);
+
+        this.jlblTituloValvulas.setEnabled(true);
+        this.jtxtValvula.setEnabled(true);
+        this.jbtnAñadirValvula.setEnabled(true);
+
+        this.jlblTituloNeumaticos.setEnabled(true);
+        this.jtxtNeumatico.setEnabled(true);
+        this.jbtnAñadirNeumatico.setEnabled(true);
+    }
+
+    private void bloqueoTotal() {
+        this.jlblTituloTornillos.setEnabled(false);
+        this.jtxtTornillo.setEnabled(false);
+        this.jbtnAñadirTornillo.setEnabled(false);
+
+        this.jlblTituloLlantas.setEnabled(false);
+        this.jtxtLLanta.setEnabled(false);
+        this.jbtnAñadirLlanta.setEnabled(false);
+
+        this.jlblTituloValvulas.setEnabled(false);
+        this.jtxtValvula.setEnabled(false);
+        this.jbtnAñadirValvula.setEnabled(false);
+
+        this.jlblTituloNeumaticos.setEnabled(false);
+        this.jtxtNeumatico.setEnabled(false);
+        this.jbtnAñadirNeumatico.setEnabled(false);
     }
 
 }
