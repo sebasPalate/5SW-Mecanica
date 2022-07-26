@@ -8,6 +8,18 @@ package decorador;
  *
  * @author sebas
  */
-public class Accidente {
-    
+public class Accidente implements AdicionalSeguro {
+
+    private ISeguro seguro;
+
+    @Override
+    public String getDescripcion() {
+        return this.seguro.getDescripcion();
+    }
+
+    @Override
+    public int valor() {
+        return 15;
+    }
+
 }
