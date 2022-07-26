@@ -4,6 +4,11 @@
  */
 package mecanica;
 
+import composite.CompuestoRecambio;
+import composite.ElementoRecambio;
+import composite.IRecambio;
+import composite.Llanta;
+import composite.Tornillo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -617,7 +622,7 @@ public final class Sistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnConstruirComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnConstruirComponenteActionPerformed
-        // TODO add your handling code here:
+        construccion();
     }//GEN-LAST:event_jbtnConstruirComponenteActionPerformed
 
     private void jbtnAñadirRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirRepuestoActionPerformed
@@ -961,6 +966,8 @@ public final class Sistema extends javax.swing.JFrame {
                 this.jtxtComponenteMarca.setEnabled(true);
                 this.jtxtComponenteTamaño.setEnabled(true);
                 this.jtxtComponentePrecio.setEnabled(true);
+
+                this.jbtnConstruirComponente.setEnabled(true);
                 cargarTablaComponenteLlanta();
                 bloqueoLlantas();
                 break;
@@ -969,6 +976,8 @@ public final class Sistema extends javax.swing.JFrame {
                 this.jtxtComponenteTamaño.setEnabled(true);
                 this.jtxtComponentePrecio.setEnabled(true);
                 this.jtxtComponenteMarca.setEnabled(false);
+
+                this.jbtnConstruirComponente.setEnabled(true);
                 cargarTablaComponenteLlantaRueda();
                 bloqueoRuedas();
                 break;
@@ -1156,6 +1165,8 @@ public final class Sistema extends javax.swing.JFrame {
         this.jlblTituloNeumaticos.setEnabled(false);
         this.jtxtNeumatico.setEnabled(false);
         this.jbtnAñadirNeumatico.setEnabled(false);
+
+        this.jbtnConstruirComponente.setEnabled(false);
     }
 
     private void cargarTablaComponenteLlanta() {
@@ -1251,6 +1262,70 @@ public final class Sistema extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:  " + ex);
         }
+    }
+
+    private void construccion() {
+        switch (this.jcbxComponentes.getSelectedIndex()) {
+            case 1:
+                construccionLlanta();
+                break;
+            case 2:
+                construccionRueda();
+                break;
+            default:
+                this.jbtnConstruirComponente.setEnabled(false);
+                break;
+        }
+
+    }
+
+    private void construccionLlanta() {
+        IRecambio llanta = new CompuestoRecambio(this.jtxtComponenteCodigo.getText(), this.jtxtComponenteMarca.getText(),
+                this.jtxtComponenteTamaño.getText(), Float.valueOf(this.jtxtComponentePrecio.getText()));
+
+        for (int i = 0; i < this.jtblComponentes.getRowCount(); i++) {
+            IRecambio tornillo = new ElementoRecambio(this.jtblComponentes.getValueAt(i, 0).toString(),
+                    this.jtblComponentes.getValueAt(i, 1).toString(),
+                    Float.valueOf(this.jtblComponentes.getValueAt(i, 2).toString()));
+            llanta.addComponenteRecambio(tornillo);
+        }
+        insertarLlanta();
+        cargarLlantas();
+    }
+
+    private void insertarLlanta() {
+        try {
+            String sql = "INSERT INTO LLANTAS(CODIGO, MARCA, TAMAÑO, PRECIO, TORNILLOS) VALUES(?, ?, ?, ?, ?)";
+            if (this.jtxtComponenteCodigo.getText().equals("") || this.jtxtComponenteMarca.getText().equals("")
+                    || this.jtxtComponenteTamaño.getText().equals("")
+                    || this.jtxtComponentePrecio.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Inserte Datos o Datos Incompletos");
+                this.jtxtComponenteCodigo.requestFocus();
+            } else {
+                PreparedStatement psd = connection.prepareStatement(sql);
+                psd.setString(1, this.jtxtComponenteCodigo.getText().toUpperCase());
+                psd.setString(2, this.jtxtComponenteMarca.getText().toUpperCase());
+                psd.setString(3, this.jtxtComponenteTamaño.getText().toUpperCase());
+                psd.setString(4, this.jtxtComponentePrecio.getText());
+
+                int n = psd.executeUpdate();
+                if (n > 0) {
+                    JOptionPane.showMessageDialog(this, "¡Inserción Exitosa!");
+                }
+                cargarLlantas();
+                limpiar();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Fallido " + ex);
+        }
+    }
+
+    private void construccionRueda() {
+
+        String codigo = this.jtblComponentes.getValueAt(0, 0).toString();
+        String marca = this.jtblComponentes.getValueAt(0, 1).toString();
+        String precio = this.jtblComponentes.getValueAt(0, 2).toString();
+
     }
 
 }

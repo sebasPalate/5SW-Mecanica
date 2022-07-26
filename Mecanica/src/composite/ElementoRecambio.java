@@ -10,74 +10,114 @@ package composite;
  */
 public class ElementoRecambio implements IRecambio {
 
-    private String nombre;
-    private String descripcion;
-    private double precio;
+    private String codigo;
+    private String marca;
+    private String tipo;
+    private String tamaño;
+    private float precio;
 
     public ElementoRecambio() {
     }
 
+    public ElementoRecambio(String codigo, String marca, String tipo, String tamaño, float precio) {
+        this.codigo = codigo;
+        this.marca = marca;
+        this.tipo = tipo;
+        this.tamaño = tamaño;
+        this.precio = precio;
+    }
+
     /**
-     * Constructor con parametros
+     * Contructor para Tornillo y Valvula
      *
-     * @param nombre
-     * @param descripcion
+     * @param codigo
+     * @param marca
      * @param precio
      */
-    public ElementoRecambio(String nombre, String descripcion, double precio) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    public ElementoRecambio(String codigo, String marca, float precio) {
+        this.codigo = codigo;
+        this.marca = marca;
+        this.precio = precio;
+    }
+
+    /**
+     * Contructor para Rueda
+     *
+     * @param codigo
+     * @param tamaño
+     * @param llanta
+     * @param neumatico
+     * @param precio
+     */
+    public ElementoRecambio(String codigo, String tamaño, IRecambio llanta, IRecambio neumatico, float precio) {
+        this.codigo = codigo;
+        this.tamaño = tamaño;
+        this.precio = precio;
+    }
+
+    /**
+     * Contructor para Llanta
+     *
+     * @param codigo
+     * @param marca
+     * @param tamaño
+     * @param precio
+     */
+    public ElementoRecambio(String codigo, String marca, String tamaño, float precio) {
+        this.codigo = codigo;
+        this.marca = marca;
+        this.tamaño = tamaño;
         this.precio = precio;
     }
 
     @Override
     public String getCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.codigo;
     }
 
     @Override
     public void setCodigo(String codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.codigo = codigo;
     }
 
     @Override
     public String getMarca() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.marca;
     }
 
     @Override
     public void setMarca(String marca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.marca = marca;
     }
 
     @Override
     public String getTipo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.tipo;
     }
 
     @Override
     public void setTipo(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.tipo = tipo;
     }
 
     @Override
     public String getTamaño() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.tamaño;
     }
 
     @Override
     public void setTamaño(String tamaño) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.tamaño = tamaño;
     }
 
     @Override
     public float getPrecio() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.precio;
     }
 
     @Override
     public void setPrecio(float precio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.precio = precio;
     }
 
     /*

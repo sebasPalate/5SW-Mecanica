@@ -17,16 +17,23 @@ public class CompuestoRecambio implements IRecambio {
     private String marca;
     private String tipo;
     private String tamaño;
-    private double precio;
+    private float precio;
 
     public CompuestoRecambio() {
     }
 
-    public CompuestoRecambio(ArrayList<IRecambio> recambios, String codigo, String marca, String tipo, String tamaño, double precio) {
+    public CompuestoRecambio(ArrayList<IRecambio> recambios, String codigo, String marca, String tipo, String tamaño, float precio) {
         this.recambios = recambios;
         this.codigo = codigo;
         this.marca = marca;
         this.tipo = tipo;
+        this.tamaño = tamaño;
+        this.precio = precio;
+    }
+
+    public CompuestoRecambio(String codigo, String marca, String tamaño, float precio) {
+        this.codigo = codigo;
+        this.marca = marca;
         this.tamaño = tamaño;
         this.precio = precio;
     }
