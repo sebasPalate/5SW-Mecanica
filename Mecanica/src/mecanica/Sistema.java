@@ -82,6 +82,7 @@ public final class Sistema extends javax.swing.JFrame {
         jbtnAñadirNeumatico = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtblComponentes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jlblTitulo = new javax.swing.JLabel();
         JpnlInsersion1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -206,6 +207,13 @@ public final class Sistema extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(jtblComponentes);
 
+        jButton1.setText("Agregar Seguro");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JpnlInsersionLayout = new javax.swing.GroupLayout(JpnlInsersion);
         JpnlInsersion.setLayout(JpnlInsersionLayout);
         JpnlInsersionLayout.setHorizontalGroup(
@@ -213,35 +221,41 @@ public final class Sistema extends javax.swing.JFrame {
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jLabel11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(296, Short.MAX_VALUE))
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                            .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jtxtTornillo)
-                                .addComponent(jlblTituloTornillos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(18, 18, 18)
-                            .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtxtLLanta)
-                                .addComponent(jlblTituloLlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                            .addComponent(jbtnAñadirTornillo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jbtnAñadirLlanta)))
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                    .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jtxtTornillo)
+                                        .addComponent(jlblTituloTornillos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jtxtLLanta)
+                                        .addComponent(jlblTituloLlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                    .addComponent(jbtnAñadirTornillo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jbtnAñadirLlanta)))
+                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtxtValvula, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jbtnAñadirValvula, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlblTituloValvulas, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jlblTituloNeumaticos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jtxtNeumatico)
+                                    .addComponent(jbtnAñadirNeumatico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtxtValvula, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbtnAñadirValvula, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlblTituloValvulas, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jlblTituloNeumaticos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtxtNeumatico)
-                            .addComponent(jbtnAñadirNeumatico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jbtnConstruirComponente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtnConstruirComponente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -261,43 +275,15 @@ public final class Sistema extends javax.swing.JFrame {
                             .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jcbxComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
         );
         JpnlInsersionLayout.setVerticalGroup(
             JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbxComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(41, 41, 41))
-                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jtxtComponenteMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtComponenteCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxtComponenteTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
+                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JpnlInsersionLayout.createSequentialGroup()
@@ -326,9 +312,38 @@ public final class Sistema extends javax.swing.JFrame {
                                 .addComponent(jtxtNeumatico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jbtnAñadirNeumatico)))
-                        .addGap(60, 60, 60)
+                        .addGap(48, 48, 48)
                         .addComponent(jbtnConstruirComponente)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbxComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(41, 41, 41))
+                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtxtComponenteMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtComponenteCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxtComponenteTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JpnlInsersionLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(37, 37, 37)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jlblTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -377,16 +392,19 @@ public final class Sistema extends javax.swing.JFrame {
                         .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel18)
+                .addContainerGap(336, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersion1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
-                                    .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18)))
+                                    .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel16))
                         .addGap(48, 48, 48)
                         .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,9 +413,9 @@ public final class Sistema extends javax.swing.JFrame {
                             .addComponent(jLabel15)
                             .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
+                        .addGap(119, 119, 119)
                         .addComponent(jbtnAñadirRepuesto)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         JpnlInsersion1Layout.setVerticalGroup(
             JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,7 +430,7 @@ public final class Sistema extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JpnlInsersion1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
@@ -434,7 +452,7 @@ public final class Sistema extends javax.swing.JFrame {
                         .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtnAñadirRepuesto)
-                .addGap(14, 14, 14))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -666,6 +684,11 @@ public final class Sistema extends javax.swing.JFrame {
         añadirNeumatico(this.jtxtNeumatico.getText());
     }//GEN-LAST:event_jbtnAñadirNeumaticoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        seguro();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -704,6 +727,7 @@ public final class Sistema extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpnlInsersion;
     private javax.swing.JPanel JpnlInsersion1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1321,11 +1345,48 @@ public final class Sistema extends javax.swing.JFrame {
     }
 
     private void construccionRueda() {
+        IRecambio llanta = new CompuestoRecambio(this.jtxtComponenteCodigo.getText(), this.jtxtComponenteMarca.getText(),
+                this.jtxtComponenteTamaño.getText(), Float.valueOf(this.jtxtComponentePrecio.getText()));
 
-        String codigo = this.jtblComponentes.getValueAt(0, 0).toString();
-        String marca = this.jtblComponentes.getValueAt(0, 1).toString();
-        String precio = this.jtblComponentes.getValueAt(0, 2).toString();
+        for (int i = 0; i < this.jtblComponentes.getRowCount(); i++) {
+            IRecambio tornillo = new ElementoRecambio(this.jtblComponentes.getValueAt(i, 0).toString(),
+                    this.jtblComponentes.getValueAt(i, 1).toString(),
+                    Float.valueOf(this.jtblComponentes.getValueAt(i, 2).toString()));
+            llanta.addComponenteRecambio(tornillo);
+        }
+        insertarRueda();
+        cargarRuedas();
+    }
 
+    private void insertarRueda() {
+        try {
+            String sql = "INSERT INTO LLANTAS(CODIGO, MARCA, TAMAÑO, PRECIO, TORNILLOS) VALUES(?, ?, ?, ?, ?)";
+            if (this.jtxtComponenteCodigo.getText().equals("") || this.jtxtComponenteMarca.getText().equals("")
+                    || this.jtxtComponenteTamaño.getText().equals("")
+                    || this.jtxtComponentePrecio.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Inserte Datos o Datos Incompletos");
+                this.jtxtComponenteCodigo.requestFocus();
+            } else {
+                PreparedStatement psd = connection.prepareStatement(sql);
+                psd.setString(1, this.jtxtComponenteCodigo.getText().toUpperCase());
+                psd.setString(2, this.jtxtComponenteMarca.getText().toUpperCase());
+                psd.setString(3, this.jtxtComponenteTamaño.getText().toUpperCase());
+                psd.setString(4, this.jtxtComponentePrecio.getText());
+
+                int n = psd.executeUpdate();
+                if (n > 0) {
+                    JOptionPane.showMessageDialog(this, "¡Inserción Exitosa!");
+                }
+                cargarLlantas();
+                limpiar();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Fallido " + ex);
+        }
+    }
+
+    private void seguro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
