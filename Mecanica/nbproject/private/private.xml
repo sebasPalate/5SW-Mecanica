@@ -4,6 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/mecanica/Sistema.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/edu/strategy/autenticacionesStrategy/IniciarMemoria.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/composite/ElementoRecambio.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/edu/strategy/autenticacionesStrategy/IniciarSQL.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/edu/strategy/autenticacionesStrategy/Inicio.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/mecanica/Mecanica.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/composite/IRecambio.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/GitHub/5SW-Mecanica/Mecanica/src/composite/CompuestoRecambio.java</file>
         </group>
     </open-files>
 </project-private>

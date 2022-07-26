@@ -7,8 +7,6 @@ package mecanica;
 import composite.CompuestoRecambio;
 import composite.ElementoRecambio;
 import composite.IRecambio;
-import composite.Llanta;
-import composite.Tornillo;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
@@ -461,7 +459,7 @@ public final class Sistema extends javax.swing.JFrame {
                                 .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jlblTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -659,7 +657,7 @@ public final class Sistema extends javax.swing.JFrame {
                     .addComponent(JpnlInsersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
