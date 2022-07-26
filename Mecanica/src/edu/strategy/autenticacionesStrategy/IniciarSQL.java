@@ -1,9 +1,5 @@
 package edu.strategy.autenticacionesStrategy;
 
-import edu.strategy.impl.AuthenticationProvider;
-import edu.strategy.impl.Principal;
-import edu.strategy.provides.OnMemoryAuthenticationProvider;
-import edu.strategy.provides.SQLAuthenticationProvier;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
@@ -18,6 +14,7 @@ public class IniciarSQL extends javax.swing.JFrame {
 
     public IniciarSQL() {
         initComponents();
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -163,25 +160,24 @@ public class IniciarSQL extends javax.swing.JFrame {
             String usuario;
             if (cc != null) {
                 String sql = "SELECT userName, rol FROM  users WHERE userName = ? AND password = ?";
-                
-                                  
-                 if (jtxtUsuario.getText().equals("") || jpswContraseña.getText().equals("")) {
+
+                if (jtxtUsuario.getText().equals("") || jpswContraseña.getText().equals("")) {
                     JOptionPane.showMessageDialog(this, "Inserte Usuario");
                     jtxtUsuario.requestFocus();
                 } else {
                     PreparedStatement psd = (PreparedStatement) cc.prepareStatement(sql);
                     psd.setString(1, jtxtUsuario.getText());
-                    psd.setString(2,  jpswContraseña.getText());
+                    psd.setString(2, jpswContraseña.getText());
                     ResultSet resultado = psd.executeQuery();
                     if (resultado.next()) {
 
                         usuario = resultado.getString("userName");
-                      
+
                         JOptionPane.showMessageDialog(null, "¡Bienvenido!\n" + usuario);
 
-                       Sistema ss = new Sistema();
-                       ss.setVisible(true);
-                        
+                        Sistema ss = new Sistema();
+                        ss.setVisible(true);
+
                     } else {
 
                         JOptionPane.showMessageDialog(null, "Usuario y/o contraseña no existentes");

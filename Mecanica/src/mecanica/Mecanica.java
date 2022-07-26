@@ -4,6 +4,8 @@
  */
 package mecanica;
 
+import edu.strategy.autenticacionesStrategy.Inicio;
+
 /**
  *
  * @author sebas
@@ -15,6 +17,8 @@ public class Mecanica {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
     }
     
 }

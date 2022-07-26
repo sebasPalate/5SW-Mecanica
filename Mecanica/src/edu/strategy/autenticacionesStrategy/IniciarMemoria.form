@@ -64,10 +64,10 @@
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jtxtUsuario" alignment="1" min="-2" pref="207" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jtxtUsuario" alignment="1" min="-2" pref="207" max="-2" attributes="0"/>
                               <Component id="jpswContraseña" min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                       </Group>

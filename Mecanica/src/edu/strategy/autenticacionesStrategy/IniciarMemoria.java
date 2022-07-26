@@ -11,12 +11,13 @@ import javax.swing.JOptionPane;
 import mecanica.Sistema;
 
 public class IniciarMemoria extends javax.swing.JFrame {
-
+    
     public IniciarMemoria() {
         initComponents();
-
+        this.setLocationRelativeTo(null);
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -150,18 +151,18 @@ public class IniciarMemoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEntrarActionPerformed
-
+        
         try {
             AuthenticationProvider contexto;
             contexto = new AuthenticationProvider();
             String usuario = "", password = "";
             contexto.setAuthenticationStrategy(new OnMemoryAuthenticationProvider());
-
+            
             usuario = jtxtUsuario.getText();
             password = jpswContraseña.getText();
-
+            
             Principal p1 = contexto.authenticate(usuario, password);
-
+            
             System.out.println(usuario);
             System.out.println(password);
             if (p1 != null) {
@@ -173,7 +174,7 @@ public class IniciarMemoria extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuario y/o contraseña no existentes");
             }
         } catch (Exception e) {
-
+            
         }
     }//GEN-LAST:event_jbtnEntrarActionPerformed
 
