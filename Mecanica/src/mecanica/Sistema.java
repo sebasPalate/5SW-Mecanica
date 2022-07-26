@@ -685,8 +685,8 @@ public final class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnAñadirNeumaticoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        seguro();
+        Seguro seguro = new Seguro();
+        seguro.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -1384,9 +1384,4 @@ public final class Sistema extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Fallido " + ex);
         }
     }
-
-    private void seguro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

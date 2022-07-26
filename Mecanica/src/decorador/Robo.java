@@ -10,11 +10,9 @@ package decorador;
  */
 public class Robo implements AdicionalSeguro {
 
-    private ISeguro seguro;
-
     @Override
     public String getDescripcion() {
-        return this.seguro.getDescripcion();
+        return "Seguro por Robo";
     }
 
     @Override
