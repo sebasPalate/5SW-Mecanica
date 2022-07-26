@@ -10,39 +10,34 @@ import java.util.ArrayList;
  *
  * @author sebas
  */
-public class CompuestoRecambio implements IRecambio {
+public class Rueda implements IRecambio {
 
-    private ArrayList<IRecambio> recambios;
+    private ArrayList<IRecambio> recambios; //llantas(tornillos), valvulas, neumateicos
     private String codigo;
-    private String marca;
-    private String tipo;
     private String tamaño;
     private float precio;
 
-    public CompuestoRecambio() {
+    public Rueda() {
     }
 
-    public CompuestoRecambio(ArrayList<IRecambio> recambios, String codigo, String marca, String tipo, String tamaño, float precio) {
+    public Rueda(ArrayList<IRecambio> recambios, String codigo, String tamaño, float precio) {
         this.recambios = recambios;
         this.codigo = codigo;
-        this.marca = marca;
-        this.tipo = tipo;
         this.tamaño = tamaño;
         this.precio = precio;
     }
 
-    public CompuestoRecambio(String codigo, String marca, String tamaño, float precio) {
+    public Rueda(String codigo, String tamaño, float precio) {
         this.codigo = codigo;
-        this.marca = marca;
         this.tamaño = tamaño;
         this.precio = precio;
     }
 
     public ArrayList<IRecambio> getRecambios() {
-        return recambios;
+        return this.recambios;
     }
 
-    public void setRecambios(ArrayList<IRecambio> recambios) {
+    public void setTornillos(ArrayList<IRecambio> recambios) {
         this.recambios = recambios;
     }
 
@@ -63,30 +58,22 @@ public class CompuestoRecambio implements IRecambio {
 
     @Override
     public String getMarca() {
-        String nombreCompleto = this.marca + "\n";
-        for (int i = 0; i < this.recambios.size(); i++) {
-            nombreCompleto += "| " + this.recambios.get(i).getCodigo();
-        }
-        return nombreCompleto;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void setMarca(String marca) {
-        this.marca = marca;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public String getTipo() {
-        String nombreCompleto = this.tipo + "\n";
-        for (int i = 0; i < this.recambios.size(); i++) {
-            nombreCompleto += "| " + this.recambios.get(i).getCodigo();
-        }
-        return nombreCompleto;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -100,12 +87,12 @@ public class CompuestoRecambio implements IRecambio {
 
     @Override
     public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public float getPrecio() {
-        float precioTotal = (float) this.precio;
+        float precioTotal = this.precio;
         for (int i = 0; i < this.recambios.size(); i++) {
             precioTotal += this.recambios.get(i).getPrecio();
         }
