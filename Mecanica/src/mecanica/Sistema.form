@@ -195,9 +195,9 @@
                                       <Component id="jlblTituloTornillos" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jtxtTornillo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtxtLLanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jtxtLLanta" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -348,6 +348,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnA&#xf1;adirValvulaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jtxtTornillo">
         </Component>
@@ -374,6 +377,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnA&#xf1;adirNeumaticoActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane6">
           <AuxValues>

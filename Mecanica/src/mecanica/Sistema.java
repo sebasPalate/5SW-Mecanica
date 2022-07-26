@@ -36,6 +36,8 @@ public final class Sistema extends javax.swing.JFrame {
 
         seleccionarTornillo();
         seleccionarLlanta();
+        seleccionarValvula();
+        seleccionarNeumatico();
 
     }
 
@@ -169,12 +171,22 @@ public final class Sistema extends javax.swing.JFrame {
 
         jbtnAñadirValvula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirValvula.setText("Agregar");
+        jbtnAñadirValvula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAñadirValvulaActionPerformed(evt);
+            }
+        });
 
         jlblTituloNeumaticos.setText("NEUMATICOS");
         jlblTituloNeumaticos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jbtnAñadirNeumatico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirNeumatico.setText("Agregar");
+        jbtnAñadirNeumatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAñadirNeumaticoActionPerformed(evt);
+            }
+        });
 
         jtblComponentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -289,7 +301,7 @@ public final class Sistema extends javax.swing.JFrame {
                                     .addComponent(jlblTituloLlantas)
                                     .addComponent(jlblTituloTornillos))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtxtTornillo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtxtLLanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -640,6 +652,14 @@ public final class Sistema extends javax.swing.JFrame {
     private void jbtnAñadirLlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirLlantaActionPerformed
         añadirLlanta(this.jtxtLLanta.getText());
     }//GEN-LAST:event_jbtnAñadirLlantaActionPerformed
+
+    private void jbtnAñadirValvulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirValvulaActionPerformed
+        añadirValvula(this.jtxtValvula.getText());
+    }//GEN-LAST:event_jbtnAñadirValvulaActionPerformed
+
+    private void jbtnAñadirNeumaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirNeumaticoActionPerformed
+        añadirNeumatico(this.jtxtNeumatico.getText());
+    }//GEN-LAST:event_jbtnAñadirNeumaticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1066,6 +1086,24 @@ public final class Sistema extends javax.swing.JFrame {
         });
     }
 
+    public void seleccionarValvula() {
+        this.jtblValvulas.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            if (jtblValvulas.getSelectedRow() != -1) {
+                fila = jtblValvulas.getSelectedRow();
+                jtxtValvula.setText(jtblValvulas.getValueAt(fila, 0).toString());
+            }
+        });
+    }
+
+    public void seleccionarNeumatico() {
+        this.jtblnNeumaticos.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            if (jtblLlantas.getSelectedRow() != -1) {
+                fila = jtblnNeumaticos.getSelectedRow();
+                jtxtNeumatico.setText(jtblnNeumaticos.getValueAt(fila, 0).toString());
+            }
+        });
+    }
+
     private void bloqueoLlantas() {
         this.jlblTituloTornillos.setEnabled(true);
         this.jtxtTornillo.setEnabled(true);
@@ -1127,9 +1165,9 @@ public final class Sistema extends javax.swing.JFrame {
     }
 
     private void cargarTablaComponenteLlantaRueda() {
-//        String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
-//        this.modeloComponentes = new DefaultTableModel(null, titulos);
-//        this.jtblComponentes.setModel(this.modeloComponentes);
+        String[] titulos = {"CÓDIGO", "MARCA", "TIPO", "TAMAÑO", "PRECIO"};
+        this.modeloComponentes = new DefaultTableModel(null, titulos);
+        this.jtblComponentes.setModel(this.modeloComponentes);
     }
 
     private void añadirTornillo(String tornillo) {
@@ -1154,21 +1192,61 @@ public final class Sistema extends javax.swing.JFrame {
 
     private void añadirLlanta(String llanta) {
         try {
-            String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
-            this.modeloComponentes = new DefaultTableModel(null, titulos);
-            String[] registros = new String[3];
+            String[] registros = new String[5];
             if (connection != null) {
-                String sql = "SELECT CODIGO FROM LLANTAS WHERE CODIGO = '" + llanta + "'";
+                String sql = "SELECT * FROM LLANTAS WHERE CODIGO = '" + llanta + "'";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()) {
                     registros[0] = resultSet.getString("CODIGO");
-                    registros[1] = this.jtxtLLanta.getText();
+                    registros[1] = resultSet.getString("MARCA");
+                    registros[3] = resultSet.getString("TAMAÑO");
+                    registros[4] = resultSet.getString("PRECIO");
+
                     this.modeloComponentes.addRow(registros);
                 }
-                this.jtblComponentes.setModel(this.modeloComponentes);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:  " + ex);
+        }
+    }
 
+    private void añadirValvula(String valvula) {
+        try {
+            String[] registros = new String[5];
+            if (connection != null) {
+                String sql = "SELECT * FROM VALVULAS WHERE CODIGO = '" + valvula + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    registros[0] = resultSet.getString("CODIGO");
+                    registros[2] = resultSet.getString("TIPO");
+                    registros[4] = resultSet.getString("PRECIO");
+                    this.modeloComponentes.addRow(registros);
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:  " + ex);
+        }
+    }
+
+    private void añadirNeumatico(String neumatico) {
+        try {
+            String[] registros = new String[5];
+            if (connection != null) {
+                String sql = "SELECT * FROM NEUMATICOS WHERE CODIGO = '" + neumatico + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    registros[0] = resultSet.getString("CODIGO");
+                    registros[1] = resultSet.getString("MARCA");
+                    registros[3] = resultSet.getString("TAMAÑO");
+                    registros[4] = resultSet.getString("PRECIO");
+                    this.modeloComponentes.addRow(registros);
+                }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:  " + ex);
