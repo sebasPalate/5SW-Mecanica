@@ -9,11 +9,14 @@ import composite.ElementoRecambio;
 import composite.IRecambio;
 import composite.Llanta;
 import composite.Tornillo;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
@@ -55,6 +58,28 @@ public final class Sistema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/fondoSesion.png"));
+        Image image = icon.getImage();
+        jDesktopPane1 = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+        };
+        JpnlInsersion1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jcbxRespuestos = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jtxtRepuestoCodigo = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jtxtRepuestoMarca = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jtxtRepuestoPrecio = new javax.swing.JTextField();
+        jtxtRepuestoTamaño = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jtxtRepuestoTipo = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jbtnAñadirRepuesto = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         JpnlInsersion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jcbxComponentes = new javax.swing.JComboBox<>();
@@ -84,21 +109,6 @@ public final class Sistema extends javax.swing.JFrame {
         jtblComponentes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jlblTitulo = new javax.swing.JLabel();
-        JpnlInsersion1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jcbxRespuestos = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        jtxtRepuestoCodigo = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jtxtRepuestoMarca = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jtxtRepuestoPrecio = new javax.swing.JTextField();
-        jtxtRepuestoTamaño = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jtxtRepuestoTipo = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jbtnAñadirRepuesto = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -123,6 +133,114 @@ public final class Sistema extends javax.swing.JFrame {
         setTitle("Sistema");
         setPreferredSize(new java.awt.Dimension(1920, 1080));
 
+        JpnlInsersion1.setBackground(new java.awt.Color(255, 255, 255));
+        JpnlInsersion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel12.setText("REPUESTO ");
+
+        jcbxRespuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbxRespuestosActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("CODIGO");
+
+        jLabel14.setText("MARCA ");
+
+        jLabel15.setText("PRECIO");
+
+        jLabel16.setText("TAMAÑO");
+
+        jLabel17.setText("TIPO");
+
+        jbtnAñadirRepuesto.setText("Añadir Repuesto");
+        jbtnAñadirRepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAñadirRepuestoActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("REPUESTOS");
+
+        javax.swing.GroupLayout JpnlInsersion1Layout = new javax.swing.GroupLayout(JpnlInsersion1);
+        JpnlInsersion1.setLayout(JpnlInsersion1Layout);
+        JpnlInsersion1Layout.setHorizontalGroup(
+            JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel13)
+                        .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersion1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel16))
+                        .addGap(48, 48, 48)
+                        .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)
+                            .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jbtnAñadirRepuesto)))
+                .addContainerGap())
+        );
+        JpnlInsersion1Layout.setVerticalGroup(
+            JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnAñadirRepuesto)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+
+        JpnlInsersion.setBackground(new java.awt.Color(255, 255, 255));
         JpnlInsersion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setText("COMPONENTE ");
@@ -221,7 +339,7 @@ public final class Sistema extends javax.swing.JFrame {
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jLabel11)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JpnlInsersionLayout.createSequentialGroup()
                 .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpnlInsersionLayout.createSequentialGroup()
@@ -272,7 +390,7 @@ public final class Sistema extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(JpnlInsersionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtxtComponentePrecio)))
                     .addComponent(jcbxComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -343,118 +461,14 @@ public final class Sistema extends javax.swing.JFrame {
                                 .addComponent(jtxtComponentePrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jlblTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jlblTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jlblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jlblTitulo.setText("SISTEMA DE REPUESTOS NEUMATICOS");
 
-        JpnlInsersion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel12.setText("REPUESTO ");
-
-        jcbxRespuestos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbxRespuestosActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("CODIGO");
-
-        jLabel14.setText("MARCA ");
-
-        jLabel15.setText("PRECIO");
-
-        jLabel16.setText("TAMAÑO");
-
-        jLabel17.setText("TIPO");
-
-        jbtnAñadirRepuesto.setText("Añadir Repuesto");
-        jbtnAñadirRepuesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnAñadirRepuestoActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setText("REPUESTOS");
-
-        javax.swing.GroupLayout JpnlInsersion1Layout = new javax.swing.GroupLayout(JpnlInsersion1);
-        JpnlInsersion1.setLayout(JpnlInsersion1Layout);
-        JpnlInsersion1Layout.setHorizontalGroup(
-            JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel13)
-                        .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel18)
-                .addContainerGap(336, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlInsersion1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel16))
-                        .addGap(48, 48, 48)
-                        .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)
-                            .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jbtnAñadirRepuesto)))
-                .addContainerGap())
-        );
-        JpnlInsersion1Layout.setVerticalGroup(
-            JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbxRespuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtxtRepuestoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtRepuestoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtRepuestoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(JpnlInsersion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtRepuestoTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpnlInsersion1Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtRepuestoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtnAñadirRepuesto)
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jtblTornillos.setModel(new javax.swing.table.DefaultTableModel(
@@ -603,37 +617,60 @@ public final class Sistema extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jScrollPane7.setViewportView(jPanel1);
+
+        jDesktopPane1.setLayer(JpnlInsersion1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(JpnlInsersion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jlblTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(JpnlInsersion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JpnlInsersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(342, 342, 342)
+                .addComponent(jlblTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jlblTitulo)
+                .addGap(52, 52, 52)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JpnlInsersion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JpnlInsersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(225, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlblTitulo)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JpnlInsersion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JpnlInsersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JpnlInsersion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JpnlInsersion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -728,6 +765,7 @@ public final class Sistema extends javax.swing.JFrame {
     private javax.swing.JPanel JpnlInsersion;
     private javax.swing.JPanel JpnlInsersion1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
