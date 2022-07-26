@@ -10,16 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author sebas
  */
-public class Sistema extends javax.swing.JFrame {
+public final class Sistema extends javax.swing.JFrame {
 
     /**
      * Creates new form Sistema
@@ -37,6 +35,7 @@ public class Sistema extends javax.swing.JFrame {
         cargarComponentes();
 
         seleccionarTornillo();
+        seleccionarLlanta();
 
     }
 
@@ -162,6 +161,11 @@ public class Sistema extends javax.swing.JFrame {
 
         jbtnAñadirLlanta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirLlanta.setText("Agregar");
+        jbtnAñadirLlanta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAñadirLlantaActionPerformed(evt);
+            }
+        });
 
         jbtnAñadirValvula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirValvula.setText("Agregar");
@@ -630,9 +634,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbxComponentesActionPerformed
 
     private void jbtnAñadirTornilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirTornilloActionPerformed
-        // TODO add your handling code here:
         añadirTornillo(this.jtxtTornillo.getText());
     }//GEN-LAST:event_jbtnAñadirTornilloActionPerformed
+
+    private void jbtnAñadirLlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirLlantaActionPerformed
+        añadirLlanta(this.jtxtLLanta.getText());
+    }//GEN-LAST:event_jbtnAñadirLlantaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1050,59 +1057,13 @@ public class Sistema extends javax.swing.JFrame {
         });
     }
 
-    private void cargarComponentesTornillos() {
-        try {
-            switch (this.jcbxComponentes.getSelectedIndex()) {
-                case 1:
-                    String[] titulosLlanta = {"CÓDIGO", "TIPO", "PRECIO"};
-                    this.modeloComponentes = new DefaultTableModel(null, titulosLlanta);
-                    String[] registrosLlanta = new String[3];
-
-                    if (connection != null) {
-                        String sql = "SELECT * FROM TORNILLOS";
-                        Statement statement = connection.createStatement();
-                        ResultSet resultSet = statement.executeQuery(sql);
-
-                        while (resultSet.next()) {
-                            registrosLlanta[0] = resultSet.getString("CODIGO");
-                            registrosLlanta[1] = resultSet.getString("TAMAÑO");
-                            registrosLlanta[2] = resultSet.getString("LLANTA");
-                            registrosLlanta[3] = resultSet.getString("NEUMATICO");
-                            registrosLlanta[4] = resultSet.getString("PRECIO");
-
-                            this.modeloRuedas.addRow(registrosLlanta);
-                        }
-                        this.jtblRuedas.setModel(this.modeloRuedas);
-                    }
-                    break;
-                case 2:
-                    String[] titulosRueda = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMÁTICO", "PRECIO"};
-                    this.modeloComponentes = new DefaultTableModel(null, titulosRueda);
-                    String[] registrosRueda = new String[5];
-
-                    if (connection != null) {
-                        String sql = "SELECT * FROM RUEDAS";
-                        Statement statement = connection.createStatement();
-                        ResultSet resultSet = statement.executeQuery(sql);
-
-                        while (resultSet.next()) {
-                            registrosRueda[0] = resultSet.getString("CODIGO");
-                            registrosRueda[1] = resultSet.getString("TAMAÑO");
-                            registrosRueda[2] = resultSet.getString("LLANTA");
-                            registrosRueda[3] = resultSet.getString("NEUMATICO");
-                            registrosRueda[4] = resultSet.getString("PRECIO");
-
-                            this.modeloRuedas.addRow(registrosRueda);
-                        }
-                        this.jtblRuedas.setModel(this.modeloRuedas);
-                    }
-                    break;
-                default:
-                    break;
+    public void seleccionarLlanta() {
+        this.jtblLlantas.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            if (jtblLlantas.getSelectedRow() != -1) {
+                fila = jtblLlantas.getSelectedRow();
+                jtxtLLanta.setText(jtblLlantas.getValueAt(fila, 0).toString());
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error:  " + ex);
-        }
+        });
     }
 
     private void bloqueoLlantas() {
@@ -1163,14 +1124,12 @@ public class Sistema extends javax.swing.JFrame {
         String[] titulos = {"CÓDIGO", "MARCA", "PRECIO"};
         this.modeloComponentes = new DefaultTableModel(null, titulos);
         this.jtblComponentes.setModel(this.modeloComponentes);
-
     }
 
     private void cargarTablaComponenteLlantaRueda() {
-        String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
-        this.modeloComponentes = new DefaultTableModel(null, titulos);
-        this.jtblComponentes.setModel(this.modeloComponentes);
-
+//        String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
+//        this.modeloComponentes = new DefaultTableModel(null, titulos);
+//        this.jtblComponentes.setModel(this.modeloComponentes);
     }
 
     private void añadirTornillo(String tornillo) {
@@ -1187,6 +1146,29 @@ public class Sistema extends javax.swing.JFrame {
                     registros[2] = resultSet.getString("PRECIO");
                     this.modeloComponentes.addRow(registros);
                 }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:  " + ex);
+        }
+    }
+
+    private void añadirLlanta(String llanta) {
+        try {
+            String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
+            this.modeloComponentes = new DefaultTableModel(null, titulos);
+            String[] registros = new String[3];
+            if (connection != null) {
+                String sql = "SELECT CODIGO FROM LLANTAS WHERE CODIGO = '" + llanta + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    registros[0] = resultSet.getString("CODIGO");
+                    registros[1] = this.jtxtLLanta.getText();
+                    this.modeloComponentes.addRow(registros);
+                }
+                this.jtblComponentes.setModel(this.modeloComponentes);
+
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:  " + ex);

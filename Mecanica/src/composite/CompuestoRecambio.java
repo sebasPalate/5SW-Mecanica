@@ -13,14 +13,21 @@ import java.util.ArrayList;
 public class CompuestoRecambio implements IRecambio {
 
     private ArrayList<IRecambio> recambios;
-    private String nombre;
-    private String descripcion;
+    private String codigo;
+    private String marca;
+    private String tipo;
+    private String tamaño;
     private double precio;
 
-    public CompuestoRecambio(String nombre, String descripcion, double precio) {
-        this.recambios = new ArrayList<>();
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+    public CompuestoRecambio() {
+    }
+
+    public CompuestoRecambio(ArrayList<IRecambio> recambios, String codigo, String marca, String tipo, String tamaño, double precio) {
+        this.recambios = recambios;
+        this.codigo = codigo;
+        this.marca = marca;
+        this.tipo = tipo;
+        this.tamaño = tamaño;
         this.precio = precio;
     }
 
@@ -33,36 +40,65 @@ public class CompuestoRecambio implements IRecambio {
     }
 
     @Override
-    public String getNombre() {
-        String nombreCompleto = this.nombre + "\n";
+    public String getCodigo() {
+        String nombreCompleto = this.codigo + "\n";
         for (int i = 0; i < this.recambios.size(); i++) {
-            nombreCompleto += "| " + this.recambios.get(i).getNombre();
+            nombreCompleto += "| " + this.recambios.get(i).getCodigo();
         }
         return nombreCompleto;
     }
 
     @Override
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+
     }
 
     @Override
-    public String getDescripcion() {
-        String descripcionCompleta = this.descripcion + "\n";
+    public String getMarca() {
+        String nombreCompleto = this.marca + "\n";
         for (int i = 0; i < this.recambios.size(); i++) {
-            descripcionCompleta += "| " + this.recambios.get(i).getDescripcion();
+            nombreCompleto += "| " + this.recambios.get(i).getCodigo();
         }
-        return descripcionCompleta;
+        return nombreCompleto;
     }
 
     @Override
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     @Override
-    public double getPrecio() {
-        double precioTotal = this.precio;
+    public String getTipo() {
+        String nombreCompleto = this.tipo + "\n";
+        for (int i = 0; i < this.recambios.size(); i++) {
+            nombreCompleto += "| " + this.recambios.get(i).getCodigo();
+        }
+        return nombreCompleto;
+    }
+
+    @Override
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String getTamaño() {
+        String nombreCompleto = this.tamaño + "\n";
+        for (int i = 0; i < this.recambios.size(); i++) {
+            nombreCompleto += "| " + this.recambios.get(i).getMarca();
+        }
+        return nombreCompleto;
+    }
+
+    @Override
+    public void setTamaño(String tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    @Override
+    public float getPrecio() {
+        float precioTotal = (float) this.precio;
         for (int i = 0; i < this.recambios.size(); i++) {
             precioTotal += this.recambios.get(i).getPrecio();
         }
@@ -70,11 +106,10 @@ public class CompuestoRecambio implements IRecambio {
     }
 
     @Override
-    public void setPrecio(double precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
-    //Método Composite
     @Override
     public void addComponenteRecambio(IRecambio recambio) {
         this.recambios.add(recambio);
