@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -153,6 +154,11 @@ public class Sistema extends javax.swing.JFrame {
 
         jbtnAñadirTornillo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirTornillo.setText("Agregar");
+        jbtnAñadirTornillo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAñadirTornilloActionPerformed(evt);
+            }
+        });
 
         jbtnAñadirLlanta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtnAñadirLlanta.setText("Agregar");
@@ -623,6 +629,11 @@ public class Sistema extends javax.swing.JFrame {
         agregarComponentes();
     }//GEN-LAST:event_jcbxComponentesActionPerformed
 
+    private void jbtnAñadirTornilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAñadirTornilloActionPerformed
+        // TODO add your handling code here:
+        añadirTornillo(this.jtxtTornillo.getText());
+    }//GEN-LAST:event_jbtnAñadirTornilloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -923,6 +934,7 @@ public class Sistema extends javax.swing.JFrame {
                 this.jtxtComponenteMarca.setEnabled(true);
                 this.jtxtComponenteTamaño.setEnabled(true);
                 this.jtxtComponentePrecio.setEnabled(true);
+                cargarTablaComponenteLlanta();
                 bloqueoLlantas();
                 break;
             case 2:
@@ -930,6 +942,7 @@ public class Sistema extends javax.swing.JFrame {
                 this.jtxtComponenteTamaño.setEnabled(true);
                 this.jtxtComponentePrecio.setEnabled(true);
                 this.jtxtComponenteMarca.setEnabled(false);
+                cargarTablaComponenteLlantaRueda();
                 bloqueoRuedas();
                 break;
             default:
@@ -1037,47 +1050,6 @@ public class Sistema extends javax.swing.JFrame {
         });
     }
 
-    private void pasarVariasFilas() {
-        //Esto es nuevo. Recoge todas las filas seleccionadas. 
-        int FC[] = this.jtblTornillos.getSelectedRows();
-        DefaultTableModel dtm;
-        String codigo, marca, precio;
-        //Recorremos todas las filas seleccionadas para cargar los datos.
-        for (int i = 0; i < FC.length; i++) {
-            //Obtenemos fila por fila.
-            int j = FC[i];
-
-            dtm = (DefaultTableModel) this.jtblTornillos.getModel();
-            codigo = this.jtblTornillos.getValueAt(j, 0) + "";
-            marca = this.jtblTornillos.getValueAt(j, 1) + "";
-            precio = this.jtblTornillos.getValueAt(j, 2) + "";
-
-            if (codigo.equals("null")) {
-                codigo = "";
-            }
-            if (marca.equals("null")) {
-                marca = "";
-            }
-            if (precio.equals("null")) {
-                precio = "";
-            }
-
-            boolean todoVacio = false;
-            if (codigo.isEmpty()
-                    && marca.isEmpty()
-                    && precio.isEmpty()) {
-                todoVacio = true;
-            }
-            if (!todoVacio) {
-                dtm = (DefaultTableModel) this.jtblComponentes.getModel();
-                Object fila[] = {codigo, marca, precio};
-                dtm.addRow(fila);
-            }
-
-        }
-
-    }
-
     private void cargarComponentesTornillos() {
         try {
             switch (this.jcbxComponentes.getSelectedIndex()) {
@@ -1128,7 +1100,6 @@ public class Sistema extends javax.swing.JFrame {
                 default:
                     break;
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:  " + ex);
         }
@@ -1186,6 +1157,40 @@ public class Sistema extends javax.swing.JFrame {
         this.jlblTituloNeumaticos.setEnabled(false);
         this.jtxtNeumatico.setEnabled(false);
         this.jbtnAñadirNeumatico.setEnabled(false);
+    }
+
+    private void cargarTablaComponenteLlanta() {
+        String[] titulos = {"CÓDIGO", "MARCA", "PRECIO"};
+        this.modeloComponentes = new DefaultTableModel(null, titulos);
+        this.jtblComponentes.setModel(this.modeloComponentes);
+
+    }
+
+    private void cargarTablaComponenteLlantaRueda() {
+        String[] titulos = {"CÓDIGO", "TAMAÑO", "LLANTA", "NEUMATICO", "PRECIO"};
+        this.modeloComponentes = new DefaultTableModel(null, titulos);
+        this.jtblComponentes.setModel(this.modeloComponentes);
+
+    }
+
+    private void añadirTornillo(String tornillo) {
+        try {
+            String[] registros = new String[3];
+            if (connection != null) {
+                String sql = "SELECT * FROM TORNILLOS WHERE CODIGO = '" + tornillo + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    registros[0] = resultSet.getString("CODIGO");
+                    registros[1] = resultSet.getString("MARCA");
+                    registros[2] = resultSet.getString("PRECIO");
+                    this.modeloComponentes.addRow(registros);
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:  " + ex);
+        }
     }
 
 }

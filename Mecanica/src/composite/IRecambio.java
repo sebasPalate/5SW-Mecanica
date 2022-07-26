@@ -11,17 +11,25 @@ package composite;
 public interface IRecambio {
 
     //Métodos comunes de los componentes de recambio Tornillo, Rueda, Valvula y Neumático.
-    public String getNombre();
+    public String getCodigo();
 
-    public void setNombre(String nombre);
+    public void setCodigo(String codigo);
 
-    public String getDescripcion();
+    public String getMarca();
 
-    public void setDescripcion(String descripcion);
+    public void setMarca(String marca);
 
-    public double getPrecio();
+    public String getTipo();
 
-    public void setPrecio(double precio);
+    public void setTipo(String tipo);
+
+    public String getTamaño();
+
+    public void setTamaño(String tamaño);
+
+    public float getPrecio();
+
+    public void setPrecio(float precio);
 
     //Métodos necesarios del Patron Composite
     public void addComponenteRecambio(IRecambio recambio);
